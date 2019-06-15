@@ -5,7 +5,6 @@ from utils.logging_utils import _set_basic_logging
 from utils.data_utils import DataSet
 from models.infersent_models import InferSent
 from models.language_models import LanguageModel
-from models.seq2seq_models import Seq2SeqModel
 import torch
 import numpy as np
 import random

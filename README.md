@@ -2,7 +2,7 @@
 
 A Cross-Domain Transferable Neural Coherence Model
 
-Paper published in ACL 2019: (arxiv.org/abs/1905.11912)[https://arxiv.org/abs/1905.11912]
+Paper published in ACL 2019: [arxiv.org/abs/1905.11912](https://arxiv.org/abs/1905.11912)
 
 This implementation is based on PyTorch 0.4.1.
 
@@ -49,6 +49,7 @@ Train the LM with the following command:
 
 ```
 python train_lm.py --data_name <data_name>
+python train_lm.py --data_name <data_name> --reverse
 ```
 
 The pre-trained models will be saved in `./checkpoint`.

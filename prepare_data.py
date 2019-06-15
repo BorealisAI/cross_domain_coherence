@@ -45,4 +45,4 @@ os.system("rm glove.840B.300d.zip")
 os.system("mv glove.840B.300d.txt data")
 
 print("Downloading infersent pre-trained models...")
-os.system("curl -Lo data/infersent1.pkl https://dl.fbaipublicfiles.com/infersent/infersent1.pkl")
+os.system("curl -Lo data/infersent1.pkl https://dl.fbaipublicfiles.com/senteval/infersent/infersent1.pkl")
