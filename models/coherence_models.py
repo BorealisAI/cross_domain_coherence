@@ -18,7 +18,7 @@ class MarginRankingLoss(nn.Module):
         self.margin = margin
 
     def forward(self, p_scores, n_scores, weights=None):
-        scores = self.margin + p_scores - n_scores
+        scores = self.margin - p_scores + n_scores
         scores = scores.clamp(min=0)
         if weights is not None:
             scores = weights * scores
@@ -226,7 +226,7 @@ class BigramCoherence:
                         neg_scores.data.cpu().numpy().squeeze())
 
             for mean_neg_score in mean_neg_scores:
-                if mean_pos_score < mean_neg_score:
+                if mean_pos_score > mean_neg_score:
                     for i in range(3):
                         lower_bound = self.intervals[i]
                         upper_bound = self.intervals[i + 1]
@@ -237,6 +237,9 @@ class BigramCoherence:
                     upper_bound = self.intervals[i + 1]
                     if (sent_num > lower_bound) and (sent_num <= upper_bound):
                         total_samples[i] += 1
+
+            print(" ".join(sentences), mean_pos_score)
+            print(" ".join(neg_sentences), mean_neg_score)
         self.discriminator.train(True)
         accs = np.true_divide(correct_pred, total_samples)
         acc = np.true_divide(np.sum(correct_pred), np.sum(total_samples))
@@ -285,7 +288,7 @@ class BigramCoherence:
                     neg_sent2 = self.encode(neg_sent2)
                     neg_scores = self.discriminator(neg_sent1, neg_sent2)
                     mean_neg_score = neg_scores.mean().data.cpu().numpy()
-                    if mean_pos_score > mean_neg_score:
+                    if mean_pos_score < mean_neg_score:
                         flag = False
                 if flag:
                     cnt += 1.0

@@ -76,7 +76,7 @@ The log will be saved in `./log`.
 If you found this codebase or our work useful, please cite:
 
 ```
-@InProceddings{xu2019cross,
+@InProceedings{xu2019cross,
     author = {Xu, Peng and Saghir, Hamidreza and Kang, Jin Sung and Long, Teng and Bose, Avishek Joey and Cao, Yanshuai and Cheung, Jackie Chi Kit},
     title = {A Cross-Domain Transferable Neural Coherence Model}
     booktitle = {The 57th Annual Meeting of the Association for Computational Linguistics (ACL 2019)},
